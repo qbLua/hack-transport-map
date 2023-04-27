@@ -2,11 +2,12 @@ header {
   background-color: #3574F2;
   display: flex;
   justify-content: space-between;
-  padding: 40px 145px;
+  padding: 40px 360px 20px 142px;
 }
 
 body {
   margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
 }
 
 .project-title {
@@ -23,10 +24,9 @@ body {
   column-gap: 23px;
 }
 
-.select-city .MuiOutlinedInput-root {
-  background: white;
-}
 
-.select-city label {
-  color: #3574F2;
+.select-city  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
