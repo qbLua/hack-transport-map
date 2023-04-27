@@ -2,7 +2,26 @@ header {
   background-color: #3574F2;
   display: flex;
   justify-content: space-between;
-  padding: 40px 360px 20px 142px;
+  padding: 20px 360px 20px 142px;gap: 2em;
+
+}
+
+@media (max-width: 860px){
+  header{
+    padding: 2em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  .logo{
+    margin-bottom: 1em;
+  }
+
+  .contentWrapper{
+    padding: 2em;
+  }
 }
 
 body {
@@ -29,4 +48,53 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+
+.detailsHeading{
+  padding: 0.7em 2em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 0.8em;
+  background-color: white;
+  border: 3px solid #3574F2;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.32);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details[open] .detailsHeading{
+    background-color: #3574F2;
+}
+
+details[open] .expand{
+    transform: rotate(-180deg);
+  }
+
+
+.expand{
+  width: 24px;
+  height: 24px;
+  display: inline;
+  vertical-align: middle;
+  transition: 0.2s;
+}
+
+.detailsInfo{
+  background-color: white;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  border: 3px solid #3574F2;
+}
+
+
+.contentWrapper{
+  padding: 2em 5em;
+}
+
+@media (max-width: 500px){
+  .contentWrapper{
+    padding: 2em 1em;
+  }
 }

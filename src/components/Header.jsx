@@ -39,7 +39,7 @@ function Header() {
   return (
      <header>
       <div className='logo'>
-        <img src={logo} className='logo' alt='bus-logo'></img>
+        <img src={logo} className='logoImg' alt='bus-logo'></img>
         <div className='project-title'>
           <span>Анализ транспорта</span>
         </div>
