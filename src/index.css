@@ -1,0 +1,32 @@
+header {
+  background-color: #3574F2;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 145px;
+}
+
+body {
+  margin: 0;
+}
+
+.project-title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+  color: white;
+}
+
+.logo {
+  height: 59px;
+  display: flex;
+  column-gap: 23px;
+}
+
+.select-city .MuiOutlinedInput-root {
+  background: white;
+}
+
+.select-city label {
+  color: #3574F2;
+}
