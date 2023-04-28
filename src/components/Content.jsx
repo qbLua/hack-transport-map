@@ -11,35 +11,45 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 const Accordion = styled((props) => (
-  <MuiAccordion elevation={0} square {...props} />
+    <MuiAccordion elevation={0} square {...props} />
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:before': {
-    display: 'none',
-  },
+    border: `1px solid #3574F2`,
+    borderRadius: "10px",
+    '&:before': {
+        display: 'none',
+    },
+    '&.Mui-expanded': {
+        borderRadius: "10px",
+        borderTop: `1px solid #3574F2`,
+    },
 }));
 
 const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-    {...props}
-  />
+    <MuiAccordionSummary
+        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+        {...props}
+    />
 ))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
-      : 'rgba(0, 0, 0, .03)',
-  flexDirection: 'row-reverse',
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
-  },
-  '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(1),
-  },
+    backgroundColor:
+        theme.palette.mode === 'dark'
+            ? 'rgba(255, 255, 255, .05)'
+            : 'rgba(0, 0, 0, .03)',
+    flexDirection: 'row-reverse',
+    '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+        transform: 'rotate(90deg)',
+    },
+    '& .MuiAccordionSummary-content': {
+        marginLeft: theme.spacing(1),
+    },
+    '&.Mui-expanded': {
+        borderRadius: "10px 10px 0 0",
+        backgroundColor: '#3574F2',
+        color: 'white',
+    },
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
+  borderTop: '1px solid  #3574F2',
   padding: '0px'
 }));
 
@@ -132,7 +142,7 @@ function Content() {
                           lon: el.lon,
                           time: el.created_at
                         }
-                      ] 
+                      ]
                   }
               } else {
                 buses[el.transport_id].marks.push({
@@ -196,7 +206,7 @@ function Content() {
                   </ListItem>
                   })]
                 })()}
-                
+
               </List>
             </AccordionDetails>
           </Accordion>
