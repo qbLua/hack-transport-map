@@ -171,11 +171,6 @@ function Content() {
     function displayBuses () {
         return Object.keys(data).map((el,i) => {
             return  <div key={`accordion-${i}`}>
-            {/* <div className={expanded === data[el].id ? 'show' : 'hide'}><AnyChart
-            type="pie"
-            data={[1, 2, 3, 4]}
-            title="Simple pie chart"
-        /></div> */}
         <Accordion expanded={expanded === data[el].id}>
             <AccordionSummary onClick={()=>handleChange(data[el].id)} aria-controls="panel1d-content" id="panel1d-header">
               <div className='bus-info'>
@@ -200,8 +195,9 @@ function Content() {
                         <ListItemText primary='время' />
                       </div>
                     </ListItemButton>
-                  </ListItem>,
-                  ...data[el].marks.map( mark => {
+                  </ListItem>
+                  </div>,
+                  ...data[el].marks.map(mark => {
                     return  <div>
                         <div className={"desktop"}>
                             <ListItem disablePadding >
@@ -259,6 +255,7 @@ function Content() {
               </List>
             </AccordionDetails>
           </Accordion>
+          </div>
         })
     }
     return (
