@@ -1,4 +1,4 @@
-header {
+.header {
   background-color: #3574F2;
   display: flex;
   justify-content: space-between;
@@ -7,7 +7,7 @@ header {
 }
 
 @media (max-width: 860px){
-  header{
+  .header{
     padding: 2em;
     flex-direction: column;
     justify-content: center;
@@ -118,4 +118,12 @@ details[open] .expand{
   color: gray;
   font-size: smaller;
   font-weight: bolder;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

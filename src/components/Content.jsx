@@ -9,6 +9,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+// import AnyChart from '../anychart-react.min.js'
 
 const Accordion = styled((props) => (
     <MuiAccordion elevation={0} square {...props} />
@@ -168,8 +169,14 @@ function Content() {
 
 
     function displayBuses () {
-        return Object.keys(data).map(el => {
-            return  <Accordion expanded={expanded === data[el].id}>
+        return Object.keys(data).map((el,i) => {
+            return  <div key={`accordion-${i}`}>
+            {/* <div className={expanded === data[el].id ? 'show' : 'hide'}><AnyChart
+            type="pie"
+            data={[1, 2, 3, 4]}
+            title="Simple pie chart"
+        /></div> */}
+        <Accordion expanded={expanded === data[el].id}>
             <AccordionSummary onClick={()=>handleChange(data[el].id)} aria-controls="panel1d-content" id="panel1d-header">
               <div className='bus-info'>
                 <Typography title={`Номер автобуса`}>Автобус №{data[el].id}</Typography>
@@ -183,6 +190,7 @@ function Content() {
               <List>
                 {(() => {
                   return [
+                    <div key={`accordion-${i}-list-headers`}>
                     <ListItem disablePadding >
                     <ListItemButton>
                       <div className='mark mark-labels'>
@@ -192,9 +200,10 @@ function Content() {
                         <ListItemText primary='время' />
                       </div>
                     </ListItemButton>
-                  </ListItem>,
-                  ...data[el].marks.map( mark => {
-                    return <ListItem disablePadding >
+                  </ListItem>
+                    </div>,
+                  ...data[el].marks.map( (mark, i) => {
+                    return <div key={`list-item-${data[el].id}-${i}`}><ListItem disablePadding >
                     <ListItemButton>
                       <div className='mark'>
                         <ListItemText primary={mark.speed} />
@@ -203,22 +212,20 @@ function Content() {
                         <ListItemText primary={mark.time} />
                       </div>
                     </ListItemButton>
-                  </ListItem>
-                  })]
+                  </ListItem></div>
+                  })
+                ]
                 })()}
 
               </List>
             </AccordionDetails>
-          </Accordion>
+          </Accordion></div>
         })
     }
     return (
-     <body>
         <div className="contentWrapper">
             { displayBuses() }
         </div>
-
-     </body>
   );
 }
 
