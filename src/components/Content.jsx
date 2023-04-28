@@ -65,71 +65,8 @@ function Content() {
       fetch('///').then((res) => {
       }).catch(() => {
           const buses = {}
-          const res = [
-            {
-               id: 97123557,
-               transport_id: "10",
-               lat: 47226287,
-               lon: 39737388,
-               speed: 45,
-               angle: 75,
-               created_at: "2022-01-10 08:00:02"
-            },
-            {
-               id: 97123557,
-               transport_id: "10",
-               lat: 47226287,
-               lon: 39737388,
-               speed: 44,
-               angle: 74,
-               created_at: "2022-01-10 07:00:02"
-            },
-            {
-               id: 97123557,
-               transport_id: "14",
-               lat: 47226287,
-               lon: 39737388,
-               speed: 44,
-               angle: 74,
-               created_at: "2022-01-10 07:00:02"
-            },
-            {
-               id: 97123557,
-               transport_id: "11",
-               lat: 47226287,
-               lon: 39737388,
-               speed: 44,
-               angle: 74,
-               created_at: "2022-01-10 07:00:02"
-            },
-            {
-               id: 97123557,
-               transport_id: "10",
-               lat: 47226287,
-               lon: 39737388,
-               speed: 43,
-               angle: 73,
-               created_at: "2022-01-10 09:00:02"
-            },
-            {
-               id: 97123557,
-               transport_id: "10",
-               lat: 47226287,
-               lon: 39737388,
-               speed: 42,
-               angle: 72,
-               created_at: "2022-01-10 07:10:02"
-            },
-            {
-               id: 97123557,
-              transport_id: "10",
-              lat: 47226287,
-              lon: 39737388,
-              speed: 41,
-              angle: 71,
-              created_at: "2022-01-10 07:05:02"
-            },
-          ]
+          const res = [{transport_id:10,lat:"47.260002",lon:"39.674907",speed:33,angle:106,created_at:"12:55:02 27.04.2023"},
+          {transport_id:1178,lat:"47.262184",lon:"39.780495",speed:40,angle:110,created_at:"12:55:01 27.04.2023"},{transport_id:130,lat:"47.241005",lon:"39.587303",speed:0,angle:252,created_at:"12:55:01 27.04.2023"},{transport_id:3798,lat:"47.280193",lon:"39.768402",speed:34,angle:38,created_at:"12:55:01 27.04.2023"},{transport_id:10,lat:"47.256957",lon:"39.642802",speed:48,angle:72,created_at:"12:50:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:50:01 27.04.2023"},{transport_id:10,lat:"47.240388",lon:"39.614028",speed:44,angle:0,created_at:"12:45:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:45:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:40:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:35:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:30:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:25:02 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:20:02 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:15:02 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:10:01 27.04.2023"},{transport_id:1550,lat:"47.194162",lon:"39.616162",speed:2,angle:220,created_at:"12:10:01 27.04.2023"},{transport_id:5330,lat:"47.241572",lon:"39.587568",speed:3,angle:188,created_at:"12:10:01 27.04.2023"},{transport_id:5959,lat:"47.241652",lon:"39.587710",speed:0,angle:2,created_at:"12:10:01 27.04.2023"},{transport_id:8421,lat:"47.258265",lon:"39.803890",speed:0,angle:225,created_at:"12:10:01 27.04.2023"},{transport_id:8422,lat:"47.258310",lon:"39.803969",speed:0,angle:251,created_at:"12:10:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:05:01 27.04.2023"},{transport_id:1550,lat:"47.194162",lon:"39.616162",speed:2,angle:220,created_at:"12:05:01 27.04.2023"},{transport_id:5330,lat:"47.241572",lon:"39.587568",speed:3,angle:188,created_at:"12:05:01 27.04.2023"},{transport_id:5959,lat:"47.241652",lon:"39.587710",speed:0,angle:2,created_at:"12:05:01 27.04.2023"},{transport_id:8421,lat:"47.258265",lon:"39.803890",speed:0,angle:225,created_at:"12:05:01 27.04.2023"},{transport_id:8422,lat:"47.258310",lon:"39.803969",speed:0,angle:251,created_at:"12:05:01 27.04.2023"},{transport_id:130,lat:"47.226345",lon:"39.737080",speed:0,angle:252,created_at:"12:00:02 27.04.2023"}]
           res.map( el => {
               if (!Object.keys(buses).includes(el.transport_id)) {
                   buses[el.transport_id] = {
@@ -184,7 +121,7 @@ function Content() {
             </AccordionSummary>
             <AccordionDetails>
             <div className='datalense'>
-              <iframe className={expanded === data[el].id ? 'show' : 'hide'} src={`https://datalens.yandex/hwh2kbt65jum7?created_at_7dii=__between___interval_2023-04-27T06%3A00%3A00.000Z_2023-04-27T09%3A59%3A59.000Z&transport_id_339j=__eq_${data[el].id}`} width="600" height="400" frameborder="0"></iframe>
+              <iframe className={expanded === data[el].id ? 'show' : 'hide'} src={`https://datalens.yandex/hwh2kbt65jum7?created_at_7dii=__between___interval_2021-06-15T00%3A00%3A00.000Z_2021-06-15T23%3A59%3A59.999Z&transport_id_339j=__eq_${data[el].id}`} width="600" height="400" frameborder="0"></iframe>
               <iframe className={expanded === data[el].id ? 'show' : 'hide'} src={`https://datalens.yandex/5k6t5gw7u0wqv?transport_id_6ir5=__eq_${data[el].id}`} width="600" height="400" frameborder="0"></iframe>
               </div>
               <List>
