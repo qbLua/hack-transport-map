@@ -37,7 +37,7 @@ function Header() {
     setAnchorEl(null);
   };
   return (
-     <header>
+     <div className='header'>
       <div className='logo'>
         <img src={logo} className='logoImg' alt='bus-logo'></img>
         <div className='project-title'>
@@ -70,15 +70,15 @@ function Header() {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleSelect}>
+        {options.map((option,i) => (
+          <MenuItem key={`city-${i}`} selected={option === 'Pyxis'} onClick={handleSelect}>
             {option}
           </MenuItem>
         ))}
       </Menu>
     </div>
       <div></div>
-     </header>
+     </div>
   );
 }
 

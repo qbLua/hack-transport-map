@@ -23,7 +23,6 @@ const Accordion = styled((props) => (
         borderRadius: "10px",
         borderTop: `1px solid #3574F2`,
     },
-
 }));
 
 const AccordionSummary = styled((props) => (
@@ -47,14 +46,6 @@ const AccordionSummary = styled((props) => (
         borderRadius: "10px 10px 0 0",
         backgroundColor: '#3574F2',
         color: 'white',
-    },
-    [theme.breakpoints.down(750)]: {
-        '& .bus-info': {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-        },
     },
 }));
 
@@ -178,21 +169,28 @@ function Content() {
 
 
     function displayBuses () {
-        return Object.keys(data).map(el => {
-            return  <Accordion expanded={expanded === data[el].id}>
+        return Object.keys(data).map((el,i) => {
+            return  <div key={`accordion-${i}`}>
+            {/* <div className={expanded === data[el].id ? 'show' : 'hide'}><AnyChart
+            type="pie"
+            data={[1, 2, 3, 4]}
+            title="Simple pie chart"
+        /></div> */}
+        <Accordion expanded={expanded === data[el].id}>
             <AccordionSummary onClick={()=>handleChange(data[el].id)} aria-controls="panel1d-content" id="panel1d-header">
               <div className='bus-info'>
-                <Typography title={`Автобус №${data[el].id}`}>Автобус №{data[el].id}</Typography>
-                <Typography title={`${data[el].marks[0].speed} км/ч`}>{data[el].marks[0].speed} км/ч</Typography>
-                <Typography title={`${data[el].marks[0].angle}°`}>{data[el].marks[0].angle}°</Typography>
-                <Typography title={`${data[el].marks[0].lat} / ${data[el].marks[0].lon}`}>{data[el].marks[0].lat} / {data[el].marks[0].lon}</Typography>
-                <Typography title={`${data[el].marks[0].time}`}>{data[el].marks[0].time}</Typography>
+                <Typography title={`Номер автобуса`}>Автобус №{data[el].id}</Typography>
+                <Typography title={`Скорость`}>{data[el].marks[0].speed} км/ч</Typography>
+                <Typography title={`Направление движения`}>{data[el].marks[0].angle}°</Typography>
+                <Typography title={`Координаты`}>{data[el].marks[0].lat} / {data[el].marks[0].lon}</Typography>
+                <Typography title={`Время`}>{data[el].marks[0].time}</Typography>
               </div>
             </AccordionSummary>
             <AccordionDetails>
               <List>
                 {(() => {
                   return [
+                    <div key={`accordion-${i}-list-headers`}>
                     <ListItem disablePadding >
                     <ListItemButton>
                       <div className='desktop-list-headers mark mark-labels'>
