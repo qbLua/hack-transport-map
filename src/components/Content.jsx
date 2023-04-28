@@ -9,6 +9,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
 
 const Accordion = styled((props) => (
     <MuiAccordion elevation={0} square {...props} />
@@ -22,6 +23,7 @@ const Accordion = styled((props) => (
         borderRadius: "10px",
         borderTop: `1px solid #3574F2`,
     },
+
 }));
 
 const AccordionSummary = styled((props) => (
@@ -46,11 +48,19 @@ const AccordionSummary = styled((props) => (
         backgroundColor: '#3574F2',
         color: 'white',
     },
+    [theme.breakpoints.down(750)]: {
+        '& .bus-info': {
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+        },
+    },
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  borderTop: '1px solid  #3574F2',
-  padding: '0px'
+  padding: '0px',
+  display: 'contents',
 }));
 
 function Content() {
@@ -185,7 +195,7 @@ function Content() {
                   return [
                     <ListItem disablePadding >
                     <ListItemButton>
-                      <div className='mark mark-labels'>
+                      <div className='desktop-list-headers mark mark-labels'>
                         <ListItemText primary='км/ч' />
                         <ListItemText primary='направление' />
                         <ListItemText primary='координаты' />
@@ -194,16 +204,57 @@ function Content() {
                     </ListItemButton>
                   </ListItem>,
                   ...data[el].marks.map( mark => {
-                    return <ListItem disablePadding >
-                    <ListItemButton>
-                      <div className='mark'>
-                        <ListItemText primary={mark.speed} />
-                        <ListItemText primary={mark.angle} />
-                        <ListItemText primary={`${mark.lat} / ${mark.lon}`} />
-                        <ListItemText primary={mark.time} />
-                      </div>
-                    </ListItemButton>
-                  </ListItem>
+                    return  <div>
+                        <div className={"desktop"}>
+                            <ListItem disablePadding >
+                                <ListItemButton>
+                                    <div className='mark'>
+                                        <ListItemText primary={mark.speed} />
+                                        <ListItemText primary={mark.angle} />
+                                        <ListItemText primary={`${mark.lat} / ${mark.lon}`} />
+                                        <ListItemText primary={mark.time} />
+                                    </div>
+                                </ListItemButton>
+                            </ListItem>
+                        </div>
+                        <div className={"mobile"}>
+                            <ListItem disablePadding >
+                                <ListItemButton>
+                                    <div className='mark'>
+                                        <ListItemText primary={'км/ч'} />
+                                        <ListItemText primary={mark.speed} />
+                                    </div>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding >
+                                <ListItemButton>
+                                    <div className='mark'>
+                                        <ListItemText primary={'направление'} />
+                                        <ListItemText primary={mark.angle} />
+                                    </div>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding >
+                                <ListItemButton>
+                                    <div className='mark'>
+                                        <ListItemText primary={'координаты'} />
+                                        <ListItemText primary={`${mark.lat} / ${mark.lon}`} />
+                                    </div>
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding >
+                                <ListItemButton>
+                                    <div className='mark'>
+                                        <ListItemText primary={'время'} />
+
+                                        <ListItemText primary={mark.time} />
+                                    </div>
+                                </ListItemButton>
+                            </ListItem>
+                            <Divider />
+                        </div>
+                    </div>
+
                   })]
                 })()}
 

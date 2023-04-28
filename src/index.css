@@ -119,3 +119,30 @@ details[open] .expand{
   font-size: smaller;
   font-weight: bolder;
 }
+
+.mobile{
+  display: none;
+}
+
+.desktop{
+  display: block;
+
+}
+
+desktop-list-headers {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 580px ) {
+  .desktop{
+    display: none;
+  }
+  .desktop-list-headers {
+    display: none;
+  }
+  .mobile{
+    display: block;
+
+  }
+}
