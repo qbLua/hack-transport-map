@@ -162,11 +162,11 @@ function Content() {
             return  <Accordion expanded={expanded === data[el].id}>
             <AccordionSummary onClick={()=>handleChange(data[el].id)} aria-controls="panel1d-content" id="panel1d-header">
               <div className='bus-info'>
-                <Typography title={`Автобус №${data[el].id}`}>Автобус №{data[el].id}</Typography>
-                <Typography title={`${data[el].marks[0].speed} км/ч`}>{data[el].marks[0].speed} км/ч</Typography>
-                <Typography title={`${data[el].marks[0].angle}°`}>{data[el].marks[0].angle}°</Typography>
-                <Typography title={`${data[el].marks[0].lat} / ${data[el].marks[0].lon}`}>{data[el].marks[0].lat} / {data[el].marks[0].lon}</Typography>
-                <Typography title={`${data[el].marks[0].time}`}>{data[el].marks[0].time}</Typography>
+                <Typography title={`Номер автобуса`}>Автобус №{data[el].id}</Typography>
+                <Typography title={`Скорость`}>{data[el].marks[0].speed} км/ч</Typography>
+                <Typography title={`Направление движения`}>{data[el].marks[0].angle}°</Typography>
+                <Typography title={`Координаты`}>{data[el].marks[0].lat} / {data[el].marks[0].lon}</Typography>
+                <Typography title={`Время`}>{data[el].marks[0].time}</Typography>
               </div>
             </AccordionSummary>
             <AccordionDetails>
