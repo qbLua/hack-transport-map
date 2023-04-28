@@ -68,7 +68,7 @@ function Content() {
           const res = [
             {
                id: 97123557,
-               transport_id: "2260",
+               transport_id: "10",
                lat: 47226287,
                lon: 39737388,
                speed: 45,
@@ -77,7 +77,7 @@ function Content() {
             },
             {
                id: 97123557,
-               transport_id: "2260",
+               transport_id: "10",
                lat: 47226287,
                lon: 39737388,
                speed: 44,
@@ -86,7 +86,7 @@ function Content() {
             },
             {
                id: 97123557,
-               transport_id: "2261",
+               transport_id: "14",
                lat: 47226287,
                lon: 39737388,
                speed: 44,
@@ -95,7 +95,7 @@ function Content() {
             },
             {
                id: 97123557,
-               transport_id: "2262",
+               transport_id: "11",
                lat: 47226287,
                lon: 39737388,
                speed: 44,
@@ -104,7 +104,7 @@ function Content() {
             },
             {
                id: 97123557,
-               transport_id: "2260",
+               transport_id: "10",
                lat: 47226287,
                lon: 39737388,
                speed: 43,
@@ -113,7 +113,7 @@ function Content() {
             },
             {
                id: 97123557,
-               transport_id: "2260",
+               transport_id: "10",
                lat: 47226287,
                lon: 39737388,
                speed: 42,
@@ -122,7 +122,7 @@ function Content() {
             },
             {
                id: 97123557,
-              transport_id: "2260",
+              transport_id: "10",
               lat: 47226287,
               lon: 39737388,
               speed: 41,
@@ -171,6 +171,7 @@ function Content() {
     function displayBuses () {
         return Object.keys(data).map((el,i) => {
             return  <div key={`accordion-${i}`}>
+              
         <Accordion expanded={expanded === data[el].id}>
             <AccordionSummary onClick={()=>handleChange(data[el].id)} aria-controls="panel1d-content" id="panel1d-header">
               <div className='bus-info'>
@@ -182,6 +183,10 @@ function Content() {
               </div>
             </AccordionSummary>
             <AccordionDetails>
+            <div className='datalense'>
+              <iframe className={expanded === data[el].id ? 'show' : 'hide'} src={`https://datalens.yandex/hwh2kbt65jum7?created_at_7dii=__between___interval_2023-04-27T06%3A00%3A00.000Z_2023-04-27T09%3A59%3A59.000Z&transport_id_339j=__eq_${data[el].id}`} width="600" height="400" frameborder="0"></iframe>
+              <iframe className={expanded === data[el].id ? 'show' : 'hide'} src={`https://datalens.yandex/5k6t5gw7u0wqv?transport_id_6ir5=__eq_${data[el].id}`} width="600" height="400" frameborder="0"></iframe>
+              </div>
               <List>
                 {(() => {
                   return [
@@ -197,8 +202,8 @@ function Content() {
                     </ListItemButton>
                   </ListItem>
                   </div>,
-                  ...data[el].marks.map(mark => {
-                    return  <div>
+                  ...data[el].marks.map((mark, i) => {
+                    return  <div key={`${data[el].id}-${i}-listitem`}>
                         <div className={"desktop"}>
                             <ListItem disablePadding >
                                 <ListItemButton>
@@ -259,12 +264,9 @@ function Content() {
         })
     }
     return (
-     <body>
         <div className="contentWrapper">
             { displayBuses() }
         </div>
-
-     </body>
   );
 }
 

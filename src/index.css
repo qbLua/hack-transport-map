@@ -154,3 +154,8 @@ desktop-list-headers {
 .show {
   display: block;
 }
+
+.datalense {
+  display: flex;
+  justify-content: space-around;
+}
