@@ -98,3 +98,21 @@ details[open] .expand{
     padding: 2em 1em;
   }
 }
+
+.bus-info, .mark {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mark div {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.mark-labels div span{
+  color: gray;
+  font-size: smaller;
+  font-weight: bolder;
+}
